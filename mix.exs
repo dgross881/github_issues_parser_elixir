@@ -7,6 +7,7 @@ defmodule GithubIssues.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     escript: escript,
      deps: deps()]
   end
 
@@ -14,7 +15,7 @@ defmodule GithubIssues.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +28,13 @@ defmodule GithubIssues.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:httpoison, "~> 0.9.0"},
+      {:poison, "~> 2.0"}
+    ]
+  end
+
+  def escript do
+    [ main_module: GithubIssues ]
   end
 end
