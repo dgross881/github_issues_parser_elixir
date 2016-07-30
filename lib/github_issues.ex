@@ -1,5 +1,6 @@
 defmodule GithubIssues do
   @default_count 4
+  require Logger
 
   @moduledoc """
   Handle the command line parsing and the dispatch to
@@ -49,7 +50,8 @@ defmodule GithubIssues do
   end
 
   def sort_into_ascending_order(list_of_issues) do
-    Enum.sort(list_of_issues, &(&1["created_at"] >= &2["created_at"]))
+    require IEx; IEx.pry
+    #Enum.sort(list_of_issues, &(&1["created_at"] >= &2["created_at"]))
   end
 
   def decode_response({ :ok, body }), do: body

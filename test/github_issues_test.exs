@@ -19,7 +19,7 @@ defmodule GithubIssuesTest do
   test "sort ascending orders the correct way" do
     result = sort_into_ascending_order(fake_created_at_list(["c", "a", "b"]))
     issues = for issue <- result, do: issue["created_at"]
-    assert issues == ~w{a b c}
+    assert issues == ~w{c b a}
   end
 
   defp fake_created_at_list(values) do

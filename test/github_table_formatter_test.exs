@@ -3,6 +3,7 @@ defmodule GithubTableFormatter do
   import ExUnit.CaptureIO
   import GithubIssues.GithubTableFormatter, only: [ printable_table_for_columns: 2]
 
+
   alias GithubIssues.GithubTableFormatter, as: TF
 
   def simple_test_data do
